@@ -41,7 +41,8 @@ initial_activities = {
             "end_time": "16:45"
         },
         "max_participants": 12,
-        "participants": ["michael@mergington.edu", "daniel@mergington.edu"]
+        "participants": ["michael@mergington.edu", "daniel@mergington.edu"],
+        "difficulty": "Beginner"
     },
     "Programming Class": {
         "description": "Learn programming fundamentals and build software projects",
@@ -52,7 +53,8 @@ initial_activities = {
             "end_time": "08:00"
         },
         "max_participants": 20,
-        "participants": ["emma@mergington.edu", "sophia@mergington.edu"]
+        "participants": ["emma@mergington.edu", "sophia@mergington.edu"],
+        "difficulty": "Intermediate"
     },
     "Morning Fitness": {
         "description": "Early morning physical training and exercises",
@@ -74,7 +76,8 @@ initial_activities = {
             "end_time": "17:30"
         },
         "max_participants": 22,
-        "participants": ["liam@mergington.edu", "noah@mergington.edu"]
+        "participants": ["liam@mergington.edu", "noah@mergington.edu"],
+        "difficulty": "Intermediate"
     },
     "Basketball Team": {
         "description": "Practice and compete in basketball tournaments",
@@ -151,7 +154,8 @@ initial_activities = {
             "end_time": "16:00"
         },
         "max_participants": 18,
-        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"]
+        "participants": ["isabella@mergington.edu", "lucas@mergington.edu"],
+        "difficulty": "Advanced"
     },
     "Sunday Chess Tournament": {
         "description": "Weekly tournament for serious chess players with rankings",
@@ -162,7 +166,8 @@ initial_activities = {
             "end_time": "17:00"
         },
         "max_participants": 16,
-        "participants": ["william@mergington.edu", "jacob@mergington.edu"]
+        "participants": ["william@mergington.edu", "jacob@mergington.edu"],
+        "difficulty": "Advanced"
     },
     "Manga Maniacs": {
         "description": "Dive into epic adventures, master the power of friendship, and discover heroes who never give up! Join us as we explore the most captivating manga series—from shonen battles to slice-of-life tales.",
