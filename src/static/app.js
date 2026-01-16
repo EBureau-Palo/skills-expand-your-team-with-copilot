@@ -494,8 +494,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function shareOnLinkedIn(activityName, description) {
     const url = encodeURIComponent(window.location.href);
-    const title = encodeURIComponent(`${activityName} - Mergington High School`);
-    const summary = encodeURIComponent(description);
     window.open(
       `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
       '_blank',
@@ -597,16 +595,16 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="share-buttons">
         <span class="share-label">Share:</span>
-        <button class="share-button twitter" data-activity="${name}" title="Share on Twitter">
+        <button class="share-button twitter" data-activity="${name}" title="Share on Twitter" aria-label="Share ${name} on Twitter">
           𝕏
         </button>
-        <button class="share-button facebook" data-activity="${name}" title="Share on Facebook">
+        <button class="share-button facebook" data-activity="${name}" title="Share on Facebook" aria-label="Share ${name} on Facebook">
           f
         </button>
-        <button class="share-button linkedin" data-activity="${name}" title="Share on LinkedIn">
+        <button class="share-button linkedin" data-activity="${name}" title="Share on LinkedIn" aria-label="Share ${name} on LinkedIn">
           in
         </button>
-        <button class="share-button email" data-activity="${name}" title="Share via Email">
+        <button class="share-button email" data-activity="${name}" title="Share via Email" aria-label="Share ${name} via Email">
           ✉
         </button>
       </div>
