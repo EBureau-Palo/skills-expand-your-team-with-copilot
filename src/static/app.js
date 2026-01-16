@@ -595,7 +595,7 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
       <div class="share-buttons">
         <span class="share-label">Share:</span>
-        <button class="share-button twitter" data-activity="${name}" title="Share on Twitter" aria-label="Share ${name} on Twitter">
+        <button class="share-button twitter" data-activity="${name}" title="Share on X" aria-label="Share ${name} on X">
           𝕏
         </button>
         <button class="share-button facebook" data-activity="${name}" title="Share on Facebook" aria-label="Share ${name} on Facebook">
