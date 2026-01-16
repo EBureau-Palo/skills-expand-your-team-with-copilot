@@ -472,6 +472,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Social sharing functions
+  function shareOnTwitter(activityName, description, schedule) {
+    const text = `Check out ${activityName} at Mergington High School! ${description}`;
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${url}`,
+      '_blank',
+      'width=550,height=420'
+    );
+  }
+
+  function shareOnFacebook(activityName) {
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      '_blank',
+      'width=550,height=420'
+    );
+  }
+
+  function shareOnLinkedIn(activityName, description) {
+    const url = encodeURIComponent(window.location.href);
+    window.open(
+      `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+      '_blank',
+      'width=550,height=420'
+    );
+  }
+
+  function shareViaEmail(activityName, description, schedule) {
+    const subject = encodeURIComponent(`Join ${activityName} at Mergington High School`);
+    const body = encodeURIComponent(
+      `I wanted to share this activity with you:\n\n` +
+      `${activityName}\n\n` +
+      `${description}\n\n` +
+      `Schedule: ${schedule}\n\n` +
+      `Learn more at: ${window.location.href}`
+    );
+    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+  }
+
   // Function to render a single activity card
   function renderActivityCard(name, details) {
     const activityCard = document.createElement("div");
@@ -552,6 +593,21 @@ document.addEventListener("DOMContentLoaded", () => {
             .join("")}
         </ul>
       </div>
+      <div class="share-buttons">
+        <span class="share-label">Share:</span>
+        <button class="share-button twitter" data-activity="${name}" title="Share on X" aria-label="Share ${name} on X">
+          𝕏
+        </button>
+        <button class="share-button facebook" data-activity="${name}" title="Share on Facebook" aria-label="Share ${name} on Facebook">
+          f
+        </button>
+        <button class="share-button linkedin" data-activity="${name}" title="Share on LinkedIn" aria-label="Share ${name} on LinkedIn">
+          in
+        </button>
+        <button class="share-button email" data-activity="${name}" title="Share via Email" aria-label="Share ${name} via Email">
+          ✉
+        </button>
+      </div>
       <div class="activity-card-actions">
         ${
           currentUser
@@ -575,6 +631,27 @@ document.addEventListener("DOMContentLoaded", () => {
     const deleteButtons = activityCard.querySelectorAll(".delete-participant");
     deleteButtons.forEach((button) => {
       button.addEventListener("click", handleUnregister);
+    });
+
+    // Add click handlers for share buttons
+    const shareButtons = activityCard.querySelectorAll(".share-button");
+    shareButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        const activityName = button.dataset.activity;
+        const activityDetails = allActivities[activityName];
+        const schedule = formatSchedule(activityDetails);
+        
+        if (button.classList.contains('twitter')) {
+          shareOnTwitter(activityName, activityDetails.description, schedule);
+        } else if (button.classList.contains('facebook')) {
+          shareOnFacebook(activityName);
+        } else if (button.classList.contains('linkedin')) {
+          shareOnLinkedIn(activityName, activityDetails.description);
+        } else if (button.classList.contains('email')) {
+          shareViaEmail(activityName, activityDetails.description, schedule);
+        }
+      });
     });
 
     // Add click handler for register button (only when authenticated)
